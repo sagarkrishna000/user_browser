@@ -16,25 +16,37 @@ const UserList = observer(() => {
   };
 
   return (
-    <div>
-      <h1>Listed Users</h1>
-      <input type="text" placeholder="Search users" onChange={handleSearch} />
-      {userStore.loading && <p>Loading...</p>}
-      {userStore.error && <p>{userStore.error}</p>}
-      <ul>
+    <div className="p-6">
+      <h1 className="text-4xl font-bold mb-4 text-center">Listed Users</h1>
+      <input
+        type="text"
+        placeholder="Search users"
+        onChange={handleSearch}
+        className="mb-4 p-2 border border-gray-300 rounded"
+      />
+      {userStore.loading && <p className="text-blue-500">Loading...</p>}
+      {userStore.error && <p className="text-red-500">{userStore.error}</p>}
+      <ul className="space-y-4">
         {userStore.filteredUsers.map((user, index) => (
-          <li key={index}>
+          <li key={index} className="flex items-center space-x-4">
+            <img src={user.picture.thumbnail} alt="User Thumbnail" className="w-10 h-10 rounded-full" />
             <p>{user.name.first} {user.name.last}</p>
-            <img src={user.picture.thumbnail} alt="User Thumbnail" />
           </li>
         ))}
       </ul>
-      <div>
-        <button onClick={() => handlePageChange(userStore.currentPage - 1)} disabled={userStore.currentPage === 1}>
+      <div className="mt-4 flex items-center justify-between">
+        <button
+          onClick={() => handlePageChange(userStore.currentPage - 1)}
+          disabled={userStore.currentPage === 1}
+          className="px-4 py-2 bg-gray-800 rounded disabled:opacity-50"
+        >
           Previous
         </button>
-        <span> Page {userStore.currentPage} </span>
-        <button onClick={() => handlePageChange(userStore.currentPage + 1)}>
+        <span className="text-lg"> Page {userStore.currentPage} </span>
+        <button
+          onClick={() => handlePageChange(userStore.currentPage + 1)}
+          className="px-4 py-2 bg-blue-500 text-white rounded"
+        >
           Next
         </button>
       </div>
