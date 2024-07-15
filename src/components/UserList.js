@@ -22,7 +22,7 @@ const UserList = observer(() => {
         type="text"
         placeholder="Search users"
         onChange={handleSearch}
-        className="mb-4 p-2 border font-semibold bg-slate-100 border-gray-300 rounded"
+        className="mb-4 p-2 border text-stone-600 font-semibold bg-slate-100 border-gray-300 rounded"
       />
       {userStore.loading && <p className="text-blue-500">Loading...</p>}
       {userStore.error && <p className="text-red-500">{userStore.error}</p>}
