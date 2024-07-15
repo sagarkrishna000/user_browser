@@ -5,7 +5,7 @@ class UserStore {
   users = [];
   searchQuery = '';
   currentPage = 1;
-  usersPerPage = 10;
+  usersPerPage = 25;
   loading = false;
   error = null;
 

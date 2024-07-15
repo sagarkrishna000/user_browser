@@ -16,8 +16,8 @@ const UserList = observer(() => {
   };
 
   return (
-    <div className="p-6 bg-slate-400">
-      <h1 className="text-4xl font-bold mb-4 text-black text-center">Listed Users</h1>
+    <div className="p-6 bg-gradient-to-r from-sky-100 to-sky-300">
+      <h1 className="text-4xl font-bold mb-4 text-neutral-800 text-center">Listed Users</h1>
       <input
         type="text"
         placeholder="Search users"
@@ -30,7 +30,7 @@ const UserList = observer(() => {
         {userStore.filteredUsers.map((user, index) => (
           <li key={index} className="flex items-center space-x-4">
             <img src={user.picture.thumbnail} alt="User Thumbnail" className="w-10 h-10 rounded-full" />
-            <p>{user.name.first} {user.name.last}</p>
+            <p className='text-black text-lg font-medium'>{user.name.first} {user.name.last}</p>
           </li>
         ))}
       </ul>
@@ -42,10 +42,10 @@ const UserList = observer(() => {
         >
           Previous
         </button>
-        <span className="text-lg"> Page {userStore.currentPage} </span>
+        <span className="text-lg text-stone-700"> Page {userStore.currentPage} </span>
         <button
           onClick={() => handlePageChange(userStore.currentPage + 1)}
-          className="px-4 py-2 bg-blue-500 text-white rounded"
+          className="px-4 py-2 bg-gray-500 text-white rounded"
         >
           Next
         </button>
