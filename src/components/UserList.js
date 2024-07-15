@@ -16,13 +16,13 @@ const UserList = observer(() => {
   };
 
   return (
-    <div className="p-6">
-      <h1 className="text-4xl font-bold mb-4 text-center">Listed Users</h1>
+    <div className="p-6 bg-slate-400">
+      <h1 className="text-4xl font-bold mb-4 text-black text-center">Listed Users</h1>
       <input
         type="text"
         placeholder="Search users"
         onChange={handleSearch}
-        className="mb-4 p-2 border border-gray-300 rounded"
+        className="mb-4 p-2 border font-semibold bg-slate-100 border-gray-300 rounded"
       />
       {userStore.loading && <p className="text-blue-500">Loading...</p>}
       {userStore.error && <p className="text-red-500">{userStore.error}</p>}
